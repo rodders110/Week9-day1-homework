@@ -22,13 +22,19 @@ public class TestRandomiser {
 
     @Test
     public void canGetName(){
-        String result = randomiser.getOne();
+        String result = randomiser.getList(1);
         assertTrue(result.length() > 0);
     }
 
     @Test
-    public void canGetNames(){
-        String result = randomiser.getTwo();
+    public void canGetTwoNames(){
+        String result = randomiser.getList(2);
+        assertTrue(result.length() > 0);
+    }
+
+    @Test
+    public void CanGetThreeNames(){
+        String result = randomiser.getList(3);
         assertTrue(result.length() > 0);
     }
 }

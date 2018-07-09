@@ -5,7 +5,7 @@ import java.util.Collections;
 
 public class Randomiser {
 
-    ArrayList<String> names;
+   private ArrayList<String> names;
 
     public  Randomiser() {
         names = new ArrayList<String>();
@@ -22,19 +22,21 @@ public class Randomiser {
         return names;
     }
 
-    public String getOne(){
+    public String getList(int number){
 
-        Collections.shuffle(names);
-        return names.get(0);
-    }
-
-    public String getTwo(){
+        if (number <= names.size()) {
+            number = number;
+        } else {
+            number = names.size();
+        }
         String results = "";
         Collections.shuffle(names);
-        results += names.get(0);
-        results += ", ";
-        results += names.get(1);
-
-        return results;
+        int counter = 0;
+        while (counter != number){
+            results += names.get(counter);
+            results += ", ";
+            counter++;
+        }
+        return results.substring(0, results.length() -2);
     }
 }
